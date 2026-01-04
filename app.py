@@ -16,12 +16,12 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 # CORS fix (so browser preflight OPTIONS works)
-# VULTR OPTIMIZATION: 
-# We target Vultr High-Performance Cloud Compute to ensure sub-500ms latency.
+# PERFORMANCE OPTIMIZATION: 
+# We target High-Performance Cloud Compute to ensure sub-500ms latency.
 # Low latency is a critical accessibility feature for neurodivergent users.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # dev/hackathon
+    allow_origins=["*"],  # Development/Production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

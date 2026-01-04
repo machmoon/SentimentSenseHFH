@@ -2,8 +2,8 @@
 
 SentimentSense is an assistive communication "prosthetic" designed specifically for individuals with **ADHD, Autism, and Neurodivergent (ND)** traits. Optimized for **Vultr High-Performance Cloud Compute**, it translates the unspoken rules of digital communication into clear, actionable, and low-anxiety insights.
 
-## 🦅 Vultr Infrastructure
-This project is designed for the **"Best Use of Vultr"** track. It leverages Vultr's high-performance architecture to ensure zero-latency accessibility for neurodivergent users. [Read the Vultr Deployment Guide](./VULTR_DEPLOY.md).
+## 🦅 Infrastructure
+SentimentSense leverages high-performance cloud infrastructure to ensure zero-latency accessibility for neurodivergent users. [Read the Cloud Deployment Guide](./VULTR_DEPLOY.md).
 
 ## ✨ Core Features
 

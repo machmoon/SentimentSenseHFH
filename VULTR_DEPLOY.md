@@ -1,6 +1,6 @@
 # 🦅 Vultr Infrastructure: SentimentSense
 
-For the **"Best Use of Vultr"** prize, SentimentSense leverages Vultr’s high-performance infrastructure to solve the **Zero-Latency Privacy Gap** in assistive AI.
+SentimentSense leverages the Gemini API and Vultr’s high-performance infrastructure to solve the **Zero-Latency Privacy Gap** in assistive AI.
 
 ## 🚀 The Infrastructure Story
 
