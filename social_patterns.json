@@ -1,0 +1,141 @@
+[
+    {
+        "pattern": "rsd_trigger_vague",
+        "keywords": [
+            "we need to talk",
+            "call me",
+            "can you chat",
+            "?"
+        ],
+        "insight": "⚠️ RSD (Rejection Sensitive Dysphoria) Alert: Vague requests often trigger panic in neurodivergent brains. However, 90% of the time, the topic is neutral or logistical, not punitive.",
+        "advice": "Do not spiral. Ask for context immediately but calmly: 'Sure! Is everything okay, or is this about [Project/Event]?'"
+    },
+    {
+        "pattern": "passive_aggressive_punct",
+        "keywords": [
+            "fine.",
+            "sure.",
+            "ok.",
+            "whatever."
+        ],
+        "insight": "Single-word replies ending in a period can signal passive aggression OR simple exhaustion. Neurodivergent users often over-read 'anger' here.",
+        "advice": "Assume 'Exhaustion' first. Reply with low-demand validation: 'Got it. Rest up!'"
+    },
+    {
+        "pattern": "double_bind_sarcasm",
+        "keywords": [
+            "great job",
+            "thanks a lot",
+            "nice one",
+            "obviously"
+        ],
+        "insight": "Potential Sarcasm: If the context was negative, positive words mean the opposite. This is a 'Double Bind' that causes confusion.",
+        "advice": "Check the facts. Did something go wrong? If yes, read this as frustration. If no, take it literally."
+    },
+    {
+        "pattern": "infodump_check",
+        "keywords": [
+            "too much",
+            "long text",
+            "wall of text",
+            "i ain't reading all that"
+        ],
+        "insight": "Neurodivergent Communication Style: Infodumping is a love language/sign of trust, but can overwhelm neurotypical receivers.",
+        "advice": "Don't feel shame. Just summarize: 'TL;DR: I'm really excited about this! Let me know your thoughts.'"
+    },
+    {
+        "pattern": "ghosting_vs_busy",
+        "keywords": [
+            "left on read",
+            "seen",
+            "no reply"
+        ],
+        "insight": "Object Permanence Gap: You might feel they 'abandoned' you. They likely just put the phone down and forgot.",
+        "advice": "Do not double text out of anxiety. Wait 24 hours. Their silence is about *their* attention span, not *your* worth."
+    },
+    {
+        "pattern": "tone_indicator_alt",
+        "keywords": [
+            "/s",
+            "/j",
+            "tone?",
+            "are you mad"
+        ],
+        "insight": "Explicit tone indicators are rare. ND users often need a 'decoder' because allistic communication relies on subtext.",
+        "advice": "Don't guess. Trust the Ambiguity Matrix confidence score. If it's High Ambiguity, ask for clarification directly."
+    },
+    {
+        "pattern": "masking_fatigue_burnout",
+        "keywords": [
+            "tired",
+            "exhausted",
+            "can't think",
+            "overwhelmed"
+        ],
+        "insight": "Masking Cost: Trying to 'pass' as neurotypical drains executive function (Spoons). High-effort masking leads to burnout.",
+        "advice": "Switch to 'Low Energy' mode. Send a 'Scripted Decline' to protect your energy. You don't owe anyone a performance."
+    },
+    {
+        "pattern": "intent_mismatch_rude",
+        "keywords": [
+            "did i sound rude",
+            "was that mean",
+            "blunt"
+        ],
+        "insight": "Intent-Impact Gap: You likely prioritized 'Efficiency/Truth'. They likely prioritized 'Social Harmony/Hinting'.",
+        "advice": "Use the 'RSD Shield' (Simulator) to test if your bluntness will be read as 'Rude' or 'Clear' before sending."
+    },
+    {
+        "pattern": "small_talk_dread",
+        "keywords": [
+            "how are you",
+            "what's up",
+            "plans for the weekend",
+            "how was your weekend"
+        ],
+        "insight": "Phatic Communication: These are verbal 'handshakes' to establish safety, not literal requests for information.",
+        "advice": "Don't overthink the truth. Use a scripted 'Social Ping': 'Good thanks! Just resting. You?' This protects energy while checking the box."
+    },
+    {
+        "pattern": "open_ended_trap",
+        "keywords": [
+            "thoughts?",
+            "what do you think",
+            "anything else to add"
+        ],
+        "insight": "The 'Open-Ended Void': This often causes freeze/paralysis. They usually want *engagement*, not a comprehensive thesis.",
+        "advice": "Pick ONE specific detail to comment on. 'I really liked [Concept X].' You don't need to review the entire message."
+    },
+    {
+        "pattern": "demand_avoidance_pda",
+        "keywords": [
+            "you need to",
+            "must",
+            "should",
+            "can you just"
+        ],
+        "insight": "⚠️ PDA (Pathological Demand Avoidance) or Autistic Autonomy: Demands can trigger an 'identity threat' response, making you want to do the opposite.",
+        "advice": "Don't fight the feeling. Reframe it as a choice: 'I can do this at [Time] when I have the capacity' rather than 'I have to do this now'."
+    },
+    {
+        "pattern": "executive_dysfunction_shame",
+        "keywords": [
+            "sorry for the late reply",
+            "i forgot",
+            "checking in again"
+        ],
+        "insight": "The ADHD Shame Spiral: Forgetting to reply is a symptom, not a character flaw. The 'check-in' is a nudge, not a lecture.",
+        "advice": "Keep it low-friction. No need for a long apology. Use the 'Scripted Re-entry': 'Hey! Thanks for the nudge. Regarding [Topic]...'"
+    },
+    {
+        "pattern": "vague_time_ambiguity",
+        "keywords": [
+            "asap",
+            "soon",
+            "later",
+            "when you can"
+        ],
+        "insight": "Time Blindness / Literalism: 'Soon' has no fixed duration. This creates anxiety about priority.",
+        "advice": "Pin them down. Ask: 'Does soon mean today, or by the end of the week? Just want to make sure I prioritize correctly.'"
+    }
+]
