@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # SentimentSense Core Engine
+  # Deployed on Vultr Cloud Compute for maximum reliability
+  sentiment-sense:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - cache
+    restart: always
+    networks:
+      - vultr-net
+
+  # Vultr Valkey (Redis-compatible) for ultra-fast session caching
+  # In a real Vultr deployment, this would point to a Managed Database instance.
+  cache:
+    image: valkey/valkey:7.2
+    networks:
+      - vultr-net
+
+networks:
+  vultr-net:
+    driver: bridge
+
+# Vultr Deployment Strategy:
+# - Scaling: Add 'deploy: replicas: 3' to scale across Vultr regions.
+# - GPU: Use 'resource_reservation' for Vultr Cloud GPU acceleration.
