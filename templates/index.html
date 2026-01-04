@@ -131,13 +131,24 @@
                     </div>
 
                     <!-- 1.5 Psychological Insight (New Feature) -->
-                    <div id="insightBox" class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded-r-xl">
+                    <div id="insightBox" class="hidden bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded-r-xl">
                         <div class="flex items-center gap-2 mb-1">
                             <span class="text-xl">🧠</span>
                             <h3 class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Social Insight</h3>
                         </div>
                         <p id="senderInsight" class="text-slate-700 italic text-sm">
                             Analyzing...
+                        </p>
+                    </div>
+
+                    <!-- 1.6 Literal Decoder (Autism Mode) -->
+                    <div id="literalBox" class="hidden bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-r-xl">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-xl">⚖️</span>
+                            <h3 class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Literal Decoder</h3>
+                        </div>
+                        <p id="literalTranslation" class="text-emerald-900 font-medium text-sm">
+                            Decoding metaphors...
                         </p>
                     </div>
 
@@ -265,7 +276,16 @@
                 else badge.classList.add('bg-amber-100', 'text-amber-700');
 
                 // 1.5 Populate Insight
+                document.getElementById('insightBox').classList.remove('hidden');
                 document.getElementById('senderInsight').innerText = data.sender_insight || "No specific patterns detected.";
+
+                // 1.6 Populate Literal Translation
+                if (data.literal_translation) {
+                    document.getElementById('literalBox').classList.remove('hidden');
+                    document.getElementById('literalTranslation').innerText = data.literal_translation;
+                } else {
+                    document.getElementById('literalBox').classList.add('hidden');
+                }
 
                 // 2. Populate Interpretations
                 const interpContainer = document.getElementById('interpretationsArea');

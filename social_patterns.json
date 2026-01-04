@@ -7,6 +7,13 @@
             "can you chat",
             "?"
         ],
+        "tags": [
+            "RSD",
+            "Vague",
+            "Anxiety",
+            "ADHD"
+        ],
+        "severity": "high",
         "insight": "⚠️ RSD (Rejection Sensitive Dysphoria) Alert: Vague requests often trigger panic in neurodivergent brains. However, 90% of the time, the topic is neutral or logistical, not punitive.",
         "advice": "Do not spiral. Ask for context immediately but calmly: 'Sure! Is everything okay, or is this about [Project/Event]?'"
     },
@@ -18,6 +25,13 @@
             "ok.",
             "whatever."
         ],
+        "tags": [
+            "Passive-Aggressive",
+            "Tone",
+            "Literalism",
+            "Autism"
+        ],
+        "severity": "med",
         "insight": "Single-word replies ending in a period can signal passive aggression OR simple exhaustion. Neurodivergent users often over-read 'anger' here.",
         "advice": "Assume 'Exhaustion' first. Reply with low-demand validation: 'Got it. Rest up!'"
     },
@@ -29,6 +43,12 @@
             "nice one",
             "obviously"
         ],
+        "tags": [
+            "Sarcasm",
+            "Double-Bind",
+            "Literalism"
+        ],
+        "severity": "med",
         "insight": "Potential Sarcasm: If the context was negative, positive words mean the opposite. This is a 'Double Bind' that causes confusion.",
         "advice": "Check the facts. Did something go wrong? If yes, read this as frustration. If no, take it literally."
     },
@@ -40,6 +60,12 @@
             "wall of text",
             "i ain't reading all that"
         ],
+        "tags": [
+            "Infodumping",
+            "Shame",
+            "Social-Volume"
+        ],
+        "severity": "low",
         "insight": "Neurodivergent Communication Style: Infodumping is a love language/sign of trust, but can overwhelm neurotypical receivers.",
         "advice": "Don't feel shame. Just summarize: 'TL;DR: I'm really excited about this! Let me know your thoughts.'"
     },
@@ -50,6 +76,12 @@
             "seen",
             "no reply"
         ],
+        "tags": [
+            "Object-Permanence",
+            "ADHD",
+            "Rejection"
+        ],
+        "severity": "high",
         "insight": "Object Permanence Gap: You might feel they 'abandoned' you. They likely just put the phone down and forgot.",
         "advice": "Do not double text out of anxiety. Wait 24 hours. Their silence is about *their* attention span, not *your* worth."
     },
@@ -61,6 +93,12 @@
             "tone?",
             "are you mad"
         ],
+        "tags": [
+            "Tone-Indicators",
+            "Context",
+            "Decoding"
+        ],
+        "severity": "low",
         "insight": "Explicit tone indicators are rare. ND users often need a 'decoder' because allistic communication relies on subtext.",
         "advice": "Don't guess. Trust the Ambiguity Matrix confidence score. If it's High Ambiguity, ask for clarification directly."
     },
@@ -72,6 +110,12 @@
             "can't think",
             "overwhelmed"
         ],
+        "tags": [
+            "Burnout",
+            "Spoons",
+            "Masking"
+        ],
+        "severity": "high",
         "insight": "Masking Cost: Trying to 'pass' as neurotypical drains executive function (Spoons). High-effort masking leads to burnout.",
         "advice": "Switch to 'Low Energy' mode. Send a 'Scripted Decline' to protect your energy. You don't owe anyone a performance."
     },
@@ -82,6 +126,12 @@
             "was that mean",
             "blunt"
         ],
+        "tags": [
+            "Directness",
+            "Impact-Gap",
+            "Autism"
+        ],
+        "severity": "med",
         "insight": "Intent-Impact Gap: You likely prioritized 'Efficiency/Truth'. They likely prioritized 'Social Harmony/Hinting'.",
         "advice": "Use the 'RSD Shield' (Simulator) to test if your bluntness will be read as 'Rude' or 'Clear' before sending."
     },
@@ -93,6 +143,12 @@
             "plans for the weekend",
             "how was your weekend"
         ],
+        "tags": [
+            "Small-Talk",
+            "Phatic",
+            "Social-Protocol"
+        ],
+        "severity": "low",
         "insight": "Phatic Communication: These are verbal 'handshakes' to establish safety, not literal requests for information.",
         "advice": "Don't overthink the truth. Use a scripted 'Social Ping': 'Good thanks! Just resting. You?' This protects energy while checking the box."
     },
@@ -103,6 +159,12 @@
             "what do you think",
             "anything else to add"
         ],
+        "tags": [
+            "Executive-Function",
+            "Freeze",
+            "Decision-Paralysis"
+        ],
+        "severity": "med",
         "insight": "The 'Open-Ended Void': This often causes freeze/paralysis. They usually want *engagement*, not a comprehensive thesis.",
         "advice": "Pick ONE specific detail to comment on. 'I really liked [Concept X].' You don't need to review the entire message."
     },
@@ -114,6 +176,12 @@
             "should",
             "can you just"
         ],
+        "tags": [
+            "PDA",
+            "Autonomy",
+            "Neuro-Friction"
+        ],
+        "severity": "high",
         "insight": "⚠️ PDA (Pathological Demand Avoidance) or Autistic Autonomy: Demands can trigger an 'identity threat' response, making you want to do the opposite.",
         "advice": "Don't fight the feeling. Reframe it as a choice: 'I can do this at [Time] when I have the capacity' rather than 'I have to do this now'."
     },
@@ -124,6 +192,12 @@
             "i forgot",
             "checking in again"
         ],
+        "tags": [
+            "ADHD",
+            "Executive-Dysfunction",
+            "Shame"
+        ],
+        "severity": "high",
         "insight": "The ADHD Shame Spiral: Forgetting to reply is a symptom, not a character flaw. The 'check-in' is a nudge, not a lecture.",
         "advice": "Keep it low-friction. No need for a long apology. Use the 'Scripted Re-entry': 'Hey! Thanks for the nudge. Regarding [Topic]...'"
     },
@@ -135,7 +209,100 @@
             "later",
             "when you can"
         ],
+        "tags": [
+            "Time-Blindness",
+            "Directness",
+            "ADHD"
+        ],
+        "severity": "med",
         "insight": "Time Blindness / Literalism: 'Soon' has no fixed duration. This creates anxiety about priority.",
         "advice": "Pin them down. Ask: 'Does soon mean today, or by the end of the week? Just want to make sure I prioritize correctly.'"
+    },
+    {
+        "pattern": "social_camouflage_cost",
+        "keywords": [
+            "be polite",
+            "don't be weird",
+            "act normal",
+            "socially acceptable"
+        ],
+        "tags": [
+            "Masking",
+            "Social-Expectation",
+            "Autistic-Identity"
+        ],
+        "severity": "high",
+        "insight": "The Masking Trap: Attempting to meet neurotypical expectations of 'politeness' often comes at the cost of your executive function bank.",
+        "advice": "Prioritize clarity over performance. It is better to be 'direct and understood' than 'polite and confused'."
+    },
+    {
+        "pattern": "implicit_expectation_trap",
+        "keywords": [
+            "you should have known",
+            "common sense",
+            "it's obvious"
+        ],
+        "tags": [
+            "Implicit-Communication",
+            "Double-Empathy",
+            "Context-Gap"
+        ],
+        "severity": "high",
+        "insight": "The 'Common Sense' Fallacy: What is 'obvious' to an allistic brain is often an invisible social rule to an ND brain. This is not a failure of intelligence.",
+        "advice": "State the gap clearly: 'It wasn't obvious to me. Can you explain the specific expectation so I can follow it next time?'"
+    },
+    {
+        "pattern": "sensory_overload_boundary",
+        "keywords": [
+            "too loud",
+            "too bright",
+            "can't focus",
+            "busy place",
+            "crowded"
+        ],
+        "tags": [
+            "Sensory-Overload",
+            "Autism",
+            "Environment"
+        ],
+        "severity": "high",
+        "insight": "Sensory-Social Coupling: Your ability to navigate social nuances drops significantly when your environment is sensory-heavy.",
+        "advice": "The social issue might be a sensory issue. Suggest a venue change or a text-based follow-up to reduce input load."
+    },
+    {
+        "pattern": "idiomatic_confusion",
+        "keywords": [
+            "piece of cake",
+            "break a leg",
+            "under the weather",
+            "on the same page",
+            "ball is in your court",
+            "touch base"
+        ],
+        "tags": [
+            "Literalism",
+            "Metaphor",
+            "Autism"
+        ],
+        "severity": "med",
+        "insight": "Metaphor Alert: Allistic communication often uses idioms that don't match the literal truth. This is 'Social Short-hand.'",
+        "advice": "Don't process the image, process the intent. They are using a cliché to convey a vibe (e.g., 'touch base' just means 'talk later')."
+    },
+    {
+        "pattern": "exit_paralysis",
+        "keywords": [
+            "anyway",
+            "talk soon",
+            "well...",
+            "i should let you go"
+        ],
+        "tags": [
+            "Conversation-Termination",
+            "Social-Scripts",
+            "Autism"
+        ],
+        "severity": "med",
+        "insight": "The Exit Signal: These words are 'Social Pings' indicating they want to end the conversation without being rude.",
+        "advice": "Take the 'Out'. You don't need to keep talking. A simple 'Sounds good, talk soon!' is the perfect closing script."
     }
 ]

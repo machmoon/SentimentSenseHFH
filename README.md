@@ -5,6 +5,7 @@ SentimentSense is an assistive communication "prosthetic" designed specifically 
 ## ✨ Core Features
 
 -   **Social Forensics (Ambiguity Matrix)**: Decodes subtext and identifies the "Intent-Impact Trap" in vague messages.
+-   **Literal Decoder (Autism Mode)**: Strips away metaphors, idioms, and social "fluff" to reveal the raw transactional intent.
 -   **Executive Function Support (Step Breakdown)**: Deconstructs overwhelming walls-of-text into clear, prioritized checklists.
 -   **Spoon Theory Integration**: Tailors response drafts based on your current energy level (Low Spoons = Minimal Masking).
 -   **RSD Shield (Future Simulator)**: Predicts how the sender will react to your draft so you can "A/B test" social outcomes.

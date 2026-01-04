@@ -3,6 +3,7 @@ from google.genai import types
 import os
 import json
 import io
+import numpy as np
 from dotenv import load_dotenv
 
 from fastapi import FastAPI, Form, File, UploadFile, Request
@@ -44,6 +45,29 @@ if not api_key:
 else:
     client = genai.Client(api_key=api_key)
 
+# PRE-CALCULATE EMBEDDINGS for Semantic RAG
+PATTERN_EMBEDDINGS = []
+if client and SOCIAL_PATTERNS:
+    try:
+        # Use simple semantic strings for embedding
+        texts_to_embed = [f"{p['insight']} {' '.join(p['tags'])}" for p in SOCIAL_PATTERNS]
+        resp = client.models.embed_content(
+            model="text-embedding-004",
+            contents=texts_to_embed
+        )
+        for i, emb in enumerate(resp.embeddings):
+            PATTERN_EMBEDDINGS.append({
+                "index": i,
+                "vector": np.array(emb.values)
+            })
+        print(f"✅ Semantic RAG Initialized: {len(PATTERN_EMBEDDINGS)} patterns embedded.")
+    except Exception as e:
+        print(f"⚠️ Semantic RAG failed to initialize: {e}")
+
+def cosine_similarity(v1, v2):
+    """Compute cosine similarity between two vectors."""
+    return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
+
 
 @app.post("/analyze")
 async def analyze_multimodal(
@@ -76,18 +100,58 @@ async def analyze_multimodal(
     if not client:
         return {"ambiguity_level": "Error", "interpretations": [{"summary": "API Key Missing"}]}
 
-    # SIMPLE RAG LOGIC:
-    # We use a keyword-based approach here (instead of Vector DB) because the 'social_patterns.json'
-    # is small and curated. This ensures deterministic, high-quality advice for specific triggers
-    # like "We need to talk" without the overhead/latency of embeddings.
+    # HYBRID RAG LOGIC (Keywords + Semantic):
+    # 1. Keyword Match (High Precision)
     context_notes = []
-    if text:
-        text_lower = text.lower()
-        for pattern in SOCIAL_PATTERNS:
-            if any(k.lower() in text_lower for k in pattern['keywords']):
-                 context_notes.append(f"- MATCHED RULE: {pattern['insight']}\n- ADVICE: {pattern['advice']}")
+    matched_indices = set()
     
-    rag_context = "\n".join(context_notes)
+    # Clean and prepare query text
+    search_query = text if text else ""
+    # (Future: add vision-to-text here)
+
+    if search_query:
+        text_lower = search_query.lower()
+        for i, pattern in enumerate(SOCIAL_PATTERNS):
+            if any(k.lower() in text_lower for k in pattern['keywords']):
+                 # Weight Severity in presentation
+                 prefix = "🔥 CRITICAL:" if pattern.get('severity') == 'high' else "💡 RULE:"
+                 context_notes.append(f"- {prefix} {pattern['insight']}\n  ADVICE: {pattern['advice']}")
+                 matched_indices.add(i)
+
+    # 2. Semantic Match (High Recall / Fuzzy)
+    if client and PATTERN_EMBEDDINGS and search_query:
+        try:
+            # Append ND context to query to improve embedding alignment with our knowledge base
+            resp = client.models.embed_content(
+                model="text-embedding-004",
+                contents=[f"Neurodivergent social context: {search_query}"]
+            )
+            query_vector = np.array(resp.embeddings[0].values)
+            
+            similarities = []
+            for item in PATTERN_EMBEDDINGS:
+                if item['index'] not in matched_indices:
+                    sim = cosine_similarity(query_vector, item['vector'])
+                    # Boost similarity for high-severity patterns (e.g. RSD)
+                    if SOCIAL_PATTERNS[item['index']].get('severity') == 'high':
+                        sim *= 1.1 
+                    similarities.append((item['index'], sim))
+            
+            similarities.sort(key=lambda x: x[1], reverse=True)
+            for idx, sim in similarities[:3]:
+                if sim > 0.42:  
+                    p = SOCIAL_PATTERNS[idx]
+                    context_notes.append(f"- RELEVANT PATTERN (Score: {sim:.2f}): {p['insight']}\n  ADVICE: {p['advice']}")
+        except Exception as e:
+            print(f"⚠️ Semantic RAG error: {e}")
+    
+    # FALLBACK PRINCIPLES:
+    if not context_notes:
+        context_notes.append("- UNIVERSAL PRINCIPLE: Neurotypical communication often relies on 'Hinting' and social subtext.")
+
+    # Sort context_notes to put Critical items first
+    context_notes.sort(key=lambda x: "CRITICAL" in x, reverse=True)
+    rag_context = "\n".join(context_notes[:5]) # Expanded context window
     
     # SYSTEM PROMPT DESIGN:
     # We define a "Social Forensics" persona to frame ambiguity as an external puzzle, not a user deficit.
@@ -120,8 +184,9 @@ async def analyze_multimodal(
     INSTRUCTIONS:
     1. Assess ambiguity (Low/Mod/High).
     2. Identify Interpretations (Literal vs. Social/Implicit).
-    3. **Psychological Insight**: Explain the sender's likely mental state or social goal (e.g., they are in a rush, they are seeking reassurance, they are utilizing a social convention).
-    4. Generate 3 Response Paths tailored to **{energy_level} Energy**:
+    3. **Literal Translation (The 'De-fluff')**: If the message contains metaphors, idioms, or heavy 'phatic communication' (small talk), provide a 1-sentence literal translation of what they actually want.
+    4. **Psychological Insight**: Explain the sender's likely mental state or social goal (e.g., they are in a rush, they are seeking reassurance, they are utilizing a social convention).
+    5. Generate 3 Response Paths tailored to **{energy_level} Energy**:
        - Path 1: Low-Effort / Preservation (Minimal SPOONS).
        - Path 2: Medium-Effort / Standard.
        - Path 3: High-Effort / Investment (Maximize engagement).
@@ -130,6 +195,7 @@ async def analyze_multimodal(
     {{
       "ambiguity_level": "low | moderate | high",
       "confidence": 0.0,
+      "literal_translation": "The core message stripped of social fluff/idioms.",
       "sender_insight": "A neuro-inclusive analysis of why the sender wrote this.",
       "interpretations": [
         {{
