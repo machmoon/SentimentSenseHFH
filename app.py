@@ -256,7 +256,7 @@ async def breakdown_tasks(
     if not client:
         return {"tasks": ["API Key Missing"]}
 
-    system_prompt = f"""
+    system_prompt = """
     You are an ADHD Executive Function Assistant. 
     The user received a long message and is feeling overwhelmed. 
     
@@ -265,7 +265,7 @@ async def breakdown_tasks(
     2. Simplify the language into clear "next steps".
     3. Identify if any item has a deadline.
     
-    Return JSON: {{ "tasks": [ {{ "task": "...", "priority": "high|medium|low", "deadline": "..." }} ] }}
+    Return JSON: { "tasks": [ { "task": "...", "priority": "high|medium|low", "deadline": "..." } ] }
     """
 
     try:
